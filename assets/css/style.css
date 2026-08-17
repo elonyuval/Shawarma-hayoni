@@ -104,8 +104,8 @@ h1, h2, h3 {
 .eyebrow {
   display: inline-flex; align-items: center; gap: .55rem;
   font-family: var(--font-body);
-  font-size: .78rem; font-weight: 700;
-  letter-spacing: .18em;
+  font-size: .82rem; font-weight: 700;
+  letter-spacing: .14em;
   color: var(--fire);
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -199,8 +199,8 @@ h1, h2, h3 {
   position: relative;
   z-index: 1;
   font-family: var(--font-body);
-  font-size: .72rem;
-  letter-spacing: .08em;
+  font-size: .78rem;
+  letter-spacing: .06em;
   color: var(--cream-70);
   background: rgba(16, 13, 11, .78);
   border: 1px dashed var(--ink-line);
@@ -665,11 +665,7 @@ h1, h2, h3 {
   transition: opacity .4s var(--ease), transform .4s var(--ease);
 }
 .versus-result.is-visible { opacity: 1; transform: none; }
-@media (max-width: 620px) {
-  .versus-wrap { flex-direction: column; }
-  .versus-side { min-height: 180px; }
-  .versus-vs { padding-block: .2rem; }
-}
+
 
 /* ── 13 Reviews ──────────────────────────────────────────────────────────── */
 .review-list {
@@ -711,7 +707,7 @@ h1, h2, h3 {
 .rating-score { display: flex; align-items: baseline; gap: .55rem; flex-wrap: wrap; }
 .rating-score[hidden] { display: none; }
 .rating-note {
-  color: var(--cream-45); font-size: .88rem;
+  color: var(--cream-45); font-size: .9rem;
   max-width: 52ch; line-height: 1.5;
 }
 .rating-num { font-family: var(--font-display); font-weight: 900; font-size: 1.7rem; letter-spacing: -.03em; }
@@ -782,7 +778,7 @@ h1, h2, h3 {
 }
 .fact-wide { grid-column: 1 / -1; }
 .fact dt {
-  font-size: .72rem; font-weight: 700;
+  font-size: .86rem; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
   color: var(--fire);
   margin-bottom: .35rem;
@@ -790,7 +786,7 @@ h1, h2, h3 {
 .fact dd { margin: 0; font-size: 1.02rem; }
 .fact .phone { direction: ltr; unicode-bidi: isolate; display: inline-block; }
 .info-note {
-  display: block; font-size: .85rem; color: var(--cream-45);
+  display: block; font-size: .88rem; color: var(--cream-45);
   margin-top: .35rem; line-height: 1.45;
 }
 .hours-list { display: grid; gap: .2rem; max-width: 26rem; }
@@ -855,7 +851,7 @@ h1, h2, h3 {
 }
 .footer-head {
   font-family: var(--font-body); font-weight: 700;
-  font-size: .76rem; letter-spacing: .16em; text-transform: uppercase;
+  font-size: .86rem; letter-spacing: .16em; text-transform: uppercase;
   color: var(--fire); margin-bottom: .9rem;
 }
 .footer-col ul { display: grid; gap: .5rem; color: var(--cream-70); font-size: .97rem; }
@@ -869,7 +865,7 @@ h1, h2, h3 {
   font-size: .85rem; color: var(--cream-45);
 }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
 
 /* ── 18 Mobile action bar ────────────────────────────────────────────────── */
 .action-bar {
@@ -884,7 +880,7 @@ h1, h2, h3 {
 }
 .action {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
-  font-size: .78rem; font-weight: 700; color: var(--cream-70);
+  font-size: .82rem; font-weight: 700; color: var(--cream-70);
   transition: color .25s var(--ease), background-color .25s var(--ease);
 }
 .action + .action { border-inline-start: 1px solid var(--ink-line); }
@@ -916,6 +912,37 @@ h1, h2, h3 {
 }
 @media (max-width: 480px) {
   :root { --wrap: min(1240px, 100% - 1.75rem); }
+}
+
+/* ══ מובייל: הדף היה ארוך יותר מהדסקטופ. הבלוקים נמוכים יותר,
+      וסקשנים שמתפרסים לגובה עוברים לשתי עמודות במקום להיערם. ══ */
+@media (max-width: 700px) {
+  .food-card--hero  { min-height: 300px; }
+  .food-card--wide  { min-height: 200px; }
+  .food-card--small { min-height: 170px; }
+
+  /* "פיתה או לאפה" — שתי אפשרויות קצרות, אין סיבה לערום אותן */
+  .versus-wrap { flex-direction: row; align-items: stretch; gap: .5rem; }
+  .versus-side { min-height: 150px; flex: 1 1 0; }
+  .versus-vs { align-self: center; }
+  .versus-sub { display: none; }
+  .versus-side[aria-pressed="true"] .versus-sub {
+    display: block; opacity: 1; transform: none; font-size: .82rem;
+  }
+
+  .gallery-grid { grid-auto-rows: 27vw; }
+  .ph-portrait { aspect-ratio: 4 / 3; }
+
+  /* Footer: ארבע עמודות זו אחר זו זה קיר. שתיים זה תפריט. */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem 1.25rem; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; gap: .35rem; }
+
+  .review-list { gap: 1.1rem; }
+  .review + .review { padding-top: 1.1rem; }
+
+  /* בטלפון לוחצים על Waze — לא מנווטים במפה מוטמעת. מספיקה הצצה. */
+  .ph-map, .visit-map iframe { height: 210px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
