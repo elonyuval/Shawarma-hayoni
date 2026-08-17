@@ -41,7 +41,19 @@
     });
     img.addEventListener("error", function () { box.classList.remove("is-loaded"); });
   }
-  function wireImages(root) { $$(".ph img", root || document).forEach(wireImage); }
+  function wireImages(root) {
+    $$(".ph img", root || document).forEach(wireImage);
+
+    // סלוטים לתמונות בודדות (לוגו וכו') — אותה התנהגות, בלי ה־placeholder המרוצף
+    $$("[data-img-slot] img", root || document).forEach(function (img) {
+      var box = img.parentElement;
+      if (img.complete && img.naturalWidth > 0) { box.classList.add("is-loaded"); return; }
+      img.addEventListener("load", function () {
+        if (img.naturalWidth > 0) box.classList.add("is-loaded");
+      });
+      img.addEventListener("error", function () { box.classList.remove("is-loaded"); });
+    });
+  }
 
   function phMarkup(src, alt, cls, lazy) {
     return (

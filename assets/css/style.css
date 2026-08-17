@@ -9,18 +9,20 @@
 
 /* ── 01 Tokens ───────────────────────────────────────────────────────────── */
 :root {
-  --ink:        #100D0B;
-  --ink-2:      #17120F;
-  --ink-3:      #201A15;
-  --ink-line:   rgba(244, 239, 230, .12);
+  /* הנייטרלים חומים-חמים כדי להתיישב על הרקע של הלוגו */
+  --ink:        #140F0C;
+  --ink-2:      #1C1512;
+  --ink-3:      #251C17;
+  --ink-line:   rgba(243, 236, 225, .12);
 
-  --cream:      #F4EFE6;
-  --cream-70:   rgba(244, 239, 230, .70);
-  --cream-45:   rgba(244, 239, 230, .45);
+  --cream:      #F3ECE1;
+  --cream-70:   rgba(243, 236, 225, .70);
+  --cream-45:   rgba(243, 236, 225, .45);
 
   --fire:       #FF5C1A;
   --fire-soft:  #FF8A3D;
   --fire-deep:  #C23A08;
+  --chili:      #C4382A;   /* האדום של הצ׳ילי והמטפחת בלוגו — במינון קטן בלבד */
 
   --font-display: "Heebo", "Arial Hebrew", system-ui, sans-serif;
   --font-body:    "Assistant", "Heebo", system-ui, sans-serif;
@@ -227,12 +229,26 @@ h1, h2, h3 {
 .header-inner { display: flex; align-items: center; gap: 1.5rem; }
 
 .logo { display: inline-flex; align-items: center; gap: .55rem; }
-.logo-mark {
+
+/* עד שיש קובץ לוגו — נקודה כתומה. אחרי שיש — הלוגו עצמו. */
+.logo-badge {
+  position: relative; flex: none;
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+}
+.logo-badge::before {
+  content: "";
   width: 11px; height: 11px; border-radius: 50%;
   background: var(--fire);
   box-shadow: 0 0 0 4px rgba(255, 92, 26, .16);
-  flex: none;
 }
+.logo-badge img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: contain;
+  opacity: 0;
+}
+.logo-badge.is-loaded img { opacity: 1; }
+.logo-badge.is-loaded::before { display: none; }
 .logo-text {
   font-family: var(--font-display); font-weight: 900;
   font-size: 1.55rem; letter-spacing: -.04em;
@@ -414,6 +430,11 @@ h1, h2, h3 {
   width: clamp(9px, 1.4vw, 13px); height: clamp(9px, 1.4vw, 13px);
   border-radius: 50%; background: var(--fire); flex: none;
   box-shadow: 0 0 14px 1px rgba(255, 92, 26, .55);
+}
+/* כל מפריד שני בצבע הצ׳ילי של הלוגו */
+.marquee-item:nth-child(2n) .marquee-sep {
+  background: var(--chili);
+  box-shadow: 0 0 14px 1px rgba(196, 56, 42, .5);
 }
 @keyframes marquee { to { transform: translateX(50%); } }
 /* RTL: התוכן משוכפל, ההזזה חצי מסלול = לולאה אינסופית חלקה */
@@ -794,9 +815,14 @@ h1, h2, h3 {
 .footer-logo { font-size: 2.4rem; display: block; }
 .footer-tag { color: var(--cream-70); margin-top: .3rem; max-width: 24ch; }
 .footer-kosher {
-  display: inline-block; margin-top: .9rem;
-  border: 1px solid var(--ink-line); border-radius: 999px;
-  padding: .2rem .8rem; font-size: .82rem; color: var(--cream-45);
+  display: inline-flex; align-items: center; gap: .45rem;
+  margin-top: .9rem;
+  border: 1px solid rgba(196, 56, 42, .45); border-radius: 999px;
+  padding: .2rem .85rem; font-size: .82rem; color: var(--cream-70);
+}
+.footer-kosher::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--chili); flex: none;
 }
 .footer-head {
   font-family: var(--font-body); font-weight: 700;
