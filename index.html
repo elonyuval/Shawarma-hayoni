@@ -103,9 +103,6 @@
       </div>
     </div>
 
-    <div class="hero-scroll" aria-hidden="true">
-      <span class="hero-scroll-line"></span>
-    </div>
   </section>
 
   <!-- ══════════════════ MARQUEE ══════════════════ -->
@@ -127,8 +124,8 @@
     </div>
   </section>
 
-  <!-- ══════════════════ איך בא לך את זה? ══════════════════ -->
-  <section class="section styles" id="styles" aria-labelledby="styles-title">
+  <!-- ══════════════════ איך בא לך את זה? + תוספות ══════════════════ -->
+  <section class="section serve" id="styles" aria-labelledby="styles-title">
     <div class="wrap">
       <header class="section-head reveal">
         <span class="eyebrow">הלחם</span>
@@ -136,17 +133,12 @@
       </header>
 
       <ul class="style-list reveal" role="list" data-render="serveStyles"></ul>
-    </div>
-  </section>
 
-  <!-- ══════════════════ תוספות ══════════════════ -->
-  <section class="section extras" aria-labelledby="extras-title">
-    <div class="wrap extras-inner reveal">
-      <div class="extras-head">
-        <h2 class="extras-title" id="extras-title">וכל מה שמסביב</h2>
+      <div class="extras-inline reveal">
+        <h3 class="extras-title">וכל מה שמסביב</h3>
+        <ul class="extras-list" role="list" data-render="extras"></ul>
         <p class="extras-note" data-bind="extrasNote"></p>
       </div>
-      <ul class="extras-list" role="list" data-render="extras"></ul>
     </div>
   </section>
 
@@ -250,50 +242,50 @@
 
       <div class="visit-grid">
 
-        <div class="visit-info reveal">
+        <div class="visit-panel reveal">
 
-          <div class="info-block">
-            <h3 class="info-label">כתובת</h3>
-            <p class="info-value">
-              <span data-bind="contact.addressLine"></span><br>
-              <span data-bind="contact.addressArea"></span>, <span data-bind="contact.addressCity">נתניה</span>
-            </p>
-            <div class="info-actions">
-              <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.waze" href="#">ניווט ב־Waze</a>
-              <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.googleMaps" href="#">Google Maps</a>
-              <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.transit" data-hide-if-empty href="#">בתחבורה ציבורית</a>
+          <dl class="facts">
+            <div class="fact">
+              <dt>כתובת</dt>
+              <dd>
+                <span data-bind="contact.addressLine"></span>,
+                <span data-bind="contact.addressArea"></span>,
+                <span data-bind="contact.addressCity">נתניה</span>
+              </dd>
             </div>
-          </div>
 
-          <div class="info-block">
-            <h3 class="info-label">שעות פעילות</h3>
-            <ul class="hours-list" role="list" data-render="hours"></ul>
-            <p class="info-note" data-bind="hoursNote"></p>
-          </div>
-
-          <div class="info-block">
-            <h3 class="info-label">טלפון</h3>
-            <p class="info-value">
-              <a class="link-underline" data-bind-attr="href:contact.phoneTel" data-bind="contact.phoneDisplay" href="#">[מספר טלפון]</a>
-            </p>
-          </div>
-
-          <div class="info-block">
-            <h3 class="info-label">כשרות</h3>
-            <p class="info-value">
-              <strong data-bind="brand.kosher">כשר · בשרי</strong><br>
-              <span class="info-note" data-bind="brand.kosherAuthority"></span>
-            </p>
-          </div>
-
-          <div class="info-block" id="order">
-            <h3 class="info-label">הזמנות</h3>
-            <p class="info-value">הכי מהר — טלפון. אפשר גם להזמין אונליין.</p>
-            <div class="info-actions">
-              <a class="btn btn-primary btn-sm" data-bind-attr="href:contact.phoneTel" href="#">להתקשר עכשיו</a>
-              <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.order" data-hide-if-empty
-                 data-bind="links.orderLabel" href="#">הזמנה אונליין</a>
+            <div class="fact">
+              <dt>טלפון</dt>
+              <dd>
+                <a class="link-underline phone" data-bind-attr="href:contact.phoneTel"
+                   data-bind="contact.phoneDisplay" href="#"></a>
+              </dd>
             </div>
+
+            <div class="fact fact-wide">
+              <dt>שעות</dt>
+              <dd>
+                <ul class="hours-list" role="list" data-render="hours"></ul>
+                <p class="info-note" data-bind="hoursNote"></p>
+              </dd>
+            </div>
+
+            <div class="fact fact-wide">
+              <dt>כשרות</dt>
+              <dd>
+                <strong data-bind="brand.kosher">כשר · בשרי</strong>
+                <span class="info-note" data-bind="brand.kosherAuthority"></span>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="visit-actions" id="order">
+            <a class="btn btn-primary" data-bind-attr="href:contact.phoneTel" href="#">להתקשר ולהזמין</a>
+            <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.waze" href="#">Waze</a>
+            <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.googleMaps" href="#">Google Maps</a>
+            <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.transit" data-hide-if-empty href="#">תחבורה ציבורית</a>
+            <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.order" data-hide-if-empty
+               data-bind="links.orderLabel" href="#">הזמנה אונליין</a>
           </div>
 
         </div>

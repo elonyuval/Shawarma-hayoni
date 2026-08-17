@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- PLACEHOLDER: להחליף בלוגו האמיתי של עיוני כשיהיה קובץ וקטורי -->
-  <rect width="64" height="64" rx="14" fill="#100D0B"/>
-  <path d="M32 10c6 7 3 11 6.5 15.5C41.5 29.3 47 31.5 47 39a15 15 0 0 1-30 0c0-5.5 3.5-8.5 5.5-12.5C24.7 22 24 17 32 10Z" fill="#FF5C1A"/>
-  <path d="M32 30c2.6 3.4 1.2 5.4 3 7.6 1.6 1.9 4 3.1 4 6.4a7 7 0 0 1-14 0c0-2.7 1.7-4.2 2.8-6.2.9-1.6.6-4.1 4.2-7.8Z" fill="#FFD9C2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="עיוני">
+  <!-- אייקון זמני שנגזר מהלוגו: רקע חום־פחם, האות ע בשמנת, והנקודה האדומה.
+       כשיהיה קובץ לוגו וקטורי — להחליף את הקובץ הזה. -->
+  <rect width="64" height="64" rx="14" fill="#241C17"/>
+  <text x="34" y="45" font-family="Heebo, Arial Hebrew, sans-serif" font-size="38"
+        font-weight="900" fill="#F3ECE1" text-anchor="middle">ע</text>
+  <circle cx="14" cy="40" r="5" fill="#C4382A"/>
 </svg>

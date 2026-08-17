@@ -159,12 +159,10 @@ window.SITE = {
 
   /* ---------- גלריה ---------- */
   gallery: [
-    { image: "/images/gallery-1.jpg", alt: "השיפוד", span: "tall" },
+    { image: "/images/gallery-1.jpg", alt: "השיפוד", span: "big" },
     { image: "/images/gallery-2.jpg", alt: "מנה מוכנה", span: "wide" },
-    { image: "/images/gallery-3.jpg", alt: "המקום", span: "normal" },
-    { image: "/images/gallery-4.jpg", alt: "הצוות", span: "normal" },
-    { image: "/images/gallery-5.jpg", alt: "הכנת מנה", span: "wide" },
-    { image: "/images/gallery-6.jpg", alt: "מבחר הסלטים", span: "tall" },
+    { image: "/images/gallery-3.jpg", alt: "מבחר הסלטים", span: "normal" },
+    { image: "/images/gallery-4.jpg", alt: "המקום", span: "normal" },
   ],
 
   /* ---------- Marquee ---------- */
