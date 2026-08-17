@@ -232,10 +232,10 @@ h1, h2, h3 {
 
 .logo { display: inline-flex; align-items: center; gap: .55rem; }
 
-/* עד שיש קובץ לוגו — נקודה כתומה. אחרי שיש — הלוגו עצמו. */
+/* הסמל של עיוני. אם הקובץ חסר — נופלים בחזרה לנקודה כתומה. */
 .logo-badge {
   position: relative; flex: none;
-  width: 38px; height: 38px;
+  width: 44px; height: 44px;
   display: grid; place-items: center;
 }
 .logo-badge::before {
@@ -248,6 +248,7 @@ h1, h2, h3 {
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: contain;
   opacity: 0;
+  transition: opacity .4s var(--ease);
 }
 .logo-badge.is-loaded img { opacity: 1; }
 .logo-badge.is-loaded::before { display: none; }
@@ -838,6 +839,12 @@ h1, h2, h3 {
   grid-template-columns: 1.4fr repeat(3, 1fr);
 }
 .footer-logo { font-size: 1.85rem; display: block; }
+
+/* לוקאפ הלוגו בפוטר — מחליף את הכיתוב ברגע שהקובץ נטען */
+.footer-lockup { display: block; }
+.footer-lockup img { width: min(190px, 60%); height: auto; opacity: 0; position: absolute; }
+.footer-lockup.is-loaded img { opacity: 1; position: static; }
+.footer-lockup.is-loaded .footer-logo { display: none; }
 .footer-tag { color: var(--cream-70); margin-top: .3rem; max-width: 24ch; }
 .footer-kosher {
   display: inline-flex; align-items: center; gap: .45rem;

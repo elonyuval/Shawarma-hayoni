@@ -16,13 +16,15 @@
 <meta property="og:title" content="שווארמה עיוני נתניה">
 <meta property="og:description" content="שווארמה כמו ששווארמה צריכה להיות. שדרות גיבורי ישראל 14, אזור התעשייה נתניה. כשר.">
 <meta property="og:url" content="https://example.com/"><!-- PLACEHOLDER -->
-<meta property="og:image" content="/images/og.jpg"><!-- PLACEHOLDER: תמונת שיתוף 1200x630 -->
+<meta property="og:image" content="/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="IL">
 <meta name="geo.placename" content="נתניה">
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png"><!-- PLACEHOLDER 180x180 -->
+<link rel="icon" href="/images/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +44,7 @@
     <!-- הלוגו: ברגע ש־/images/logo.png קיים הוא מחליף את הנקודה הכתומה אוטומטית -->
     <a class="logo" href="#top" aria-label="עיוני — לראש הדף">
       <span class="logo-badge" data-img-slot aria-hidden="true">
-        <img src="/images/logo.png" alt="" width="40" height="40" decoding="async">
+        <img src="/images/logo-mark.png" alt="" width="44" height="44" decoding="async">
       </span>
       <span class="logo-text">עיוני</span>
     </a>
@@ -308,7 +310,11 @@
   <div class="wrap footer-grid">
 
     <div class="footer-brand">
-      <span class="logo-text footer-logo">עיוני<span class="period">.</span></span>
+      <span class="footer-lockup" data-img-slot>
+        <img src="/images/logo.png" alt="עיוני — שווארמה גריל" width="640" height="644"
+             loading="lazy" decoding="async">
+        <span class="logo-text footer-logo">עיוני<span class="period">.</span></span>
+      </span>
       <p class="footer-tag">שווארמה כמו ששווארמה צריכה להיות.</p>
       <p class="footer-kosher" data-bind="brand.kosher">כשר · בשרי</p>
     </div>

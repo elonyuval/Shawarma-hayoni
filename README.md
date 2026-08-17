@@ -9,7 +9,7 @@ assets/css/style.css  — כל העיצוב (מחולק לסקשנים ממוס�
 assets/js/data.js     — ⬅ כל המידע העסקי. זה הקובץ שאתה עורך.
 assets/js/main.js     — לוגיקה: אנימציות, תפריט, אינטראקציות
 images/               — כל התמונות (ראה images/README.md)
-favicon.svg           — אייקון זמני
+images/logo*.png      — הלוגו, חולץ ונוקה מצילום המסך
 ```
 
 ## הרצה מקומית
@@ -48,7 +48,7 @@ python3 -m http.server 8000
 - [ ] **קישור לעמוד הביקורות בגוגל** (`links.googleReviews`).
 - [ ] **קואורדינטות** (`geo`) — ל־structured data.
 - [ ] **ציטוטי ביקורות אמיתיים** — ראה למטה.
-- [ ] **תמונות** — ראה `images/README.md`.
+- [ ] **תמונות אוכל** — ראה `images/README.md`. (הלוגו כבר בפנים ✅)
 - [ ] **דומיין** — להחליף `https://example.com/` ב־`index.html`, `robots.txt` ו־`sitemap.xml`.
 
 ### לגבי הביקורות — חשוב
