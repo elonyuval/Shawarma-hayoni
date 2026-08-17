@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# PLACEHOLDER: להחליף בדומיין הסופי
+Sitemap: https://example.com/sitemap.xml
