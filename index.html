@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#14100E">
 
-<title>שווארמה עיוני נתניה | שווארמה כמו ששווארמה צריכה להיות</title>
-<meta name="description" content="שווארמה עיוני בנתניה — שווארמה, פרגית, שניצל וחזה עוף בפיתה, לאפה, בגט או צלחת. בשר טרי מהשיפוד, כשר. כתובת, שעות פעילות וניווט.">
+<title>שווארמה עיוני נתניה | שווארמה גריל באזור התעשייה</title>
+<meta name="description" content="שווארמה עיוני, שדרות גיבורי ישראל 14 באזור התעשייה בנתניה. שווארמה, פרגית, שניצל וחזה עוף — בפיתה, לאפה, בגט או צלחת. כשר. פתוח א׳–ה׳ 07:30–19:30. טלפון 09-885-8804.">
 <link rel="canonical" href="https://example.com/"><!-- PLACEHOLDER: כתובת הדומיין הסופית -->
 
 <!-- Open Graph / Social -->
@@ -14,10 +14,12 @@
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="שווארמה עיוני">
 <meta property="og:title" content="שווארמה עיוני נתניה">
-<meta property="og:description" content="שווארמה כמו ששווארמה צריכה להיות. בשר טרי מהשיפוד, בנתניה.">
+<meta property="og:description" content="שווארמה כמו ששווארמה צריכה להיות. שדרות גיבורי ישראל 14, אזור התעשייה נתניה. כשר.">
 <meta property="og:url" content="https://example.com/"><!-- PLACEHOLDER -->
 <meta property="og:image" content="/images/og.jpg"><!-- PLACEHOLDER: תמונת שיתוף 1200x630 -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="IL">
+<meta name="geo.placename" content="נתניה">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png"><!-- PLACEHOLDER 180x180 -->
@@ -46,7 +48,7 @@
     </a>
 
     <nav class="nav-desktop" aria-label="ניווט ראשי">
-      <ul data-render="nav"></ul>
+      <ul role="list" data-render="nav"></ul>
     </nav>
 
     <div class="header-actions">
@@ -62,7 +64,7 @@
 <!-- תפריט מובייל -->
 <div class="mobile-menu" id="mobileMenu" hidden>
   <nav aria-label="ניווט מובייל">
-    <ul data-render="nav-mobile"></ul>
+    <ul role="list" data-render="nav-mobile"></ul>
   </nav>
   <div class="mobile-menu-foot">
     <a class="btn btn-primary btn-block" data-bind-attr="href:links.order" href="#visit">להזמנה</a>
@@ -88,12 +90,12 @@
     <div class="wrap hero-content" id="heroContent">
       <p class="hero-kicker">
         <span class="dot" aria-hidden="true"></span>
-        שווארמייה בנתניה · <span data-bind="brand.kosher">כשר</span>
+        <span data-bind="hero.kicker">שווארמייה באזור התעשייה בנתניה · כשר</span>
       </p>
 
       <h1 class="hero-title" id="hero-title">עיוני<span class="period">.</span></h1>
 
-      <p class="hero-sub">שווארמה כמו ששווארמה צריכה להיות.</p>
+      <p class="hero-sub" data-bind="hero.sub">שווארמה כמו ששווארמה צריכה להיות.</p>
 
       <div class="hero-cta">
         <a class="btn btn-primary" href="#food">מה אוכלים</a>
@@ -133,7 +135,7 @@
         <h2 class="section-title" id="styles-title">איך בא לך את זה?</h2>
       </header>
 
-      <ul class="style-list reveal" data-render="serveStyles"></ul>
+      <ul class="style-list reveal" role="list" data-render="serveStyles"></ul>
     </div>
   </section>
 
@@ -144,7 +146,7 @@
         <h2 class="extras-title" id="extras-title">וכל מה שמסביב</h2>
         <p class="extras-note" data-bind="extrasNote"></p>
       </div>
-      <ul class="extras-list" data-render="extras"></ul>
+      <ul class="extras-list" role="list" data-render="extras"></ul>
     </div>
   </section>
 
@@ -180,21 +182,21 @@
     <div class="wrap">
       <header class="section-head reveal">
         <span class="eyebrow">מה אומרים</span>
-        <h2 class="section-title" id="reviews-title">לא אנחנו אמרנו.</h2>
+        <h2 class="section-title" id="reviews-title">מה שחוזר בביקורות.</h2>
       </header>
 
       <div class="review-list" data-render="reviews"></div>
 
       <div class="rating-bar reveal">
-        <div class="rating-score">
-          <span class="rating-num" data-bind="rating.score">[4.X]</span>
+        <!-- הדירוג מוצג רק אחרי שממלאים rating ב-data.js -->
+        <div class="rating-score" id="ratingScore" hidden>
+          <span class="rating-num" data-bind="rating.score"></span>
           <span class="rating-stars" aria-hidden="true">★★★★★</span>
+          <span class="rating-meta"><span data-bind="rating.count"></span> ביקורות</span>
         </div>
-        <p class="rating-meta">
-          <span data-bind="rating.count">[מספר ביקורות]</span> ביקורות בגוגל
-        </p>
-        <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.googleReviews" data-hide-if-empty href="#">
-          לכל הביקורות
+        <p class="rating-note" data-bind="reviewsNote"></p>
+        <a class="btn btn-ghost btn-sm" id="reviewsLink" data-bind-attr="href:links.reviews" href="#">
+          לקרוא את הביקורות
         </a>
       </div>
     </div>
@@ -208,9 +210,10 @@
         <span class="eyebrow">על עיוני</span>
         <h2 class="section-title" id="about-title" data-bind="about.title">פשוט עושים שווארמה כמו שצריך.</h2>
         <div class="about-body" data-render="about-paragraphs"></div>
-        <ul class="about-facts">
-          <li><strong data-bind="brand.kosher">כשר</strong><span data-bind="brand.kosherAuthority"></span></li>
+        <ul class="about-facts" role="list">
+          <li><strong data-bind="brand.kosher">כשר · בשרי</strong><span data-bind="brand.kosherAuthority"></span></li>
           <li><strong>נתניה</strong><span data-bind="contact.addressLine"></span></li>
+          <li><strong>פתוח מ־07:30</strong><span>ראשון עד שישי</span></li>
         </ul>
       </div>
 
@@ -252,18 +255,19 @@
           <div class="info-block">
             <h3 class="info-label">כתובת</h3>
             <p class="info-value">
-              <span data-bind="contact.addressLine">[כתובת מדויקת תעודכן]</span><br>
-              <span data-bind="contact.addressCity">נתניה</span>
+              <span data-bind="contact.addressLine"></span><br>
+              <span data-bind="contact.addressArea"></span>, <span data-bind="contact.addressCity">נתניה</span>
             </p>
             <div class="info-actions">
               <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.waze" href="#">ניווט ב־Waze</a>
               <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.googleMaps" href="#">Google Maps</a>
+              <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.transit" data-hide-if-empty href="#">בתחבורה ציבורית</a>
             </div>
           </div>
 
           <div class="info-block">
             <h3 class="info-label">שעות פעילות</h3>
-            <ul class="hours-list" data-render="hours"></ul>
+            <ul class="hours-list" role="list" data-render="hours"></ul>
             <p class="info-note" data-bind="hoursNote"></p>
           </div>
 
@@ -276,13 +280,20 @@
 
           <div class="info-block">
             <h3 class="info-label">כשרות</h3>
-            <p class="info-value"><span data-bind="brand.kosherAuthority"></span></p>
+            <p class="info-value">
+              <strong data-bind="brand.kosher">כשר · בשרי</strong><br>
+              <span class="info-note" data-bind="brand.kosherAuthority"></span>
+            </p>
           </div>
 
           <div class="info-block" id="order">
-            <h3 class="info-label">הזמנות ומשלוחים</h3>
-            <p class="info-value">[פרטי הזמנה / משלוחים יעודכנו]</p>
-            <a class="btn btn-primary btn-sm" data-bind-attr="href:links.order" href="#">להזמנה</a>
+            <h3 class="info-label">הזמנות</h3>
+            <p class="info-value">הכי מהר — טלפון. אפשר גם להזמין אונליין.</p>
+            <div class="info-actions">
+              <a class="btn btn-primary btn-sm" data-bind-attr="href:contact.phoneTel" href="#">להתקשר עכשיו</a>
+              <a class="btn btn-ghost btn-sm" data-bind-attr="href:links.order" data-hide-if-empty
+                 data-bind="links.orderLabel" href="#">הזמנה אונליין</a>
+            </div>
           </div>
 
         </div>
@@ -307,26 +318,26 @@
     <div class="footer-brand">
       <span class="logo-text footer-logo">עיוני<span class="period">.</span></span>
       <p class="footer-tag">שווארמה כמו ששווארמה צריכה להיות.</p>
-      <p class="footer-kosher" data-bind="brand.kosher">כשר</p>
+      <p class="footer-kosher" data-bind="brand.kosher">כשר · בשרי</p>
     </div>
 
     <nav class="footer-col" aria-label="ניווט תחתון">
       <h2 class="footer-head">ניווט</h2>
-      <ul data-render="nav-footer"></ul>
+      <ul role="list" data-render="nav-footer"></ul>
     </nav>
 
     <div class="footer-col">
       <h2 class="footer-head">פרטים</h2>
-      <ul>
+      <ul role="list">
         <li><a class="link-underline" data-bind-attr="href:contact.phoneTel" data-bind="contact.phoneDisplay" href="#">[מספר טלפון]</a></li>
-        <li><span data-bind="contact.addressLine"></span>, <span data-bind="contact.addressCity"></span></li>
+        <li><span data-bind="contact.addressLine"></span>, <span data-bind="contact.addressArea"></span>, <span data-bind="contact.addressCity"></span></li>
         <li data-render="hours-short"></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h2 class="footer-head">קישורים</h2>
-      <ul class="footer-links" data-render="social"></ul>
+      <ul class="footer-links" role="list" data-render="social"></ul>
     </div>
 
   </div>

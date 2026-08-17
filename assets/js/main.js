@@ -86,6 +86,8 @@
         if (attr === "href" && /^https?:/i.test(v)) {
           node.setAttribute("target", "_blank");
           node.setAttribute("rel", "noopener");
+          var label = (node.getAttribute("aria-label") || node.textContent || "").trim();
+          if (label) node.setAttribute("aria-label", label + " (נפתח בכרטיסייה חדשה)");
         }
       });
     });
@@ -110,7 +112,7 @@
     dishes: function (host) {
       host.innerHTML = (D.dishes || []).map(function (d) {
         return (
-          '<article class="food-card food-card--' + esc(d.size || "small") + ' reveal" tabindex="0" id="dish-' + esc(d.id) + '">' +
+          '<article class="food-card food-card--' + esc(d.size || "small") + ' reveal" id="dish-' + esc(d.id) + '">' +
             phMarkup(d.image, d.alt || d.name) +
             '<span class="food-card-scrim" aria-hidden="true"></span>' +
             '<div class="food-card-body">' +
@@ -126,7 +128,7 @@
 
     serveStyles: function (host) {
       host.innerHTML = (D.serveStyles || []).map(function (s) {
-        return '<li class="style-item" tabindex="0">' + esc(s.name) + "</li>";
+        return '<li class="style-item">' + esc(s.name) + "</li>";
       }).join("");
     },
 
@@ -138,13 +140,12 @@
 
     reviews: function (host) {
       host.innerHTML = (D.reviews || []).map(function (r) {
+        var body = r.verbatim
+          ? '<p class="review-quote">"' + esc(r.text) + '"</p>'
+          : '<p class="review-quote">' + esc(r.text) + "</p>";
         return (
-          '<blockquote class="review reveal">' +
-            '<p class="review-quote">"' + esc(r.quote) + '"</p>' +
-            '<footer class="review-source">' + esc(r.source) + "</footer>" +
-            (r.isPlaceholder
-              ? '<span class="review-flag">PLACEHOLDER — להחליף בביקורת אמיתית</span>'
-              : "") +
+          '<blockquote class="review reveal">' + body +
+            (r.source ? '<footer class="review-source">' + esc(r.source) + "</footer>" : "") +
           "</blockquote>"
         );
       }).join("");
@@ -181,18 +182,19 @@
         { label: "Instagram", href: L.instagram },
         { label: "Facebook", href: L.facebook },
         { label: "TikTok", href: L.tiktok },
+        { label: L.orderLabel || "הזמנה אונליין", href: L.order },
         { label: "Waze", href: L.waze },
         { label: "Google Maps", href: L.googleMaps },
+        { label: "תחבורה ציבורית", href: L.transit },
+        { label: L.reviewsLabel || "ביקורות", href: L.reviews },
         { label: "ביקורות בגוגל", href: L.googleReviews }
       ].filter(function (i) { return !isEmpty(i.href); });
 
-      if (!items.length) {
-        host.innerHTML = '<li class="ph-label">[קישורי רשתות חברתיות — לעדכון ב־data.js]</li>';
-        return;
-      }
+      if (!items.length) { host.innerHTML = ""; return; }
       host.innerHTML = items.map(function (i) {
         return '<li><a class="link-underline" href="' + esc(i.href) +
-               '" target="_blank" rel="noopener">' + esc(i.label) + "</a></li>";
+               '" target="_blank" rel="noopener" aria-label="' + esc(i.label) +
+               ' (נפתח בכרטיסייה חדשה)">' + esc(i.label) + "</a></li>";
       }).join("");
     }
   };
@@ -273,9 +275,12 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        links.forEach(function (a) { a.classList.remove("is-active"); });
+        links.forEach(function (a) {
+          a.classList.remove("is-active");
+          a.removeAttribute("aria-current");
+        });
         var a = map[e.target.id];
-        if (a) a.classList.add("is-active");
+        if (a) { a.classList.add("is-active"); a.setAttribute("aria-current", "true"); }
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
 
@@ -383,6 +388,7 @@
       menu: window.location.origin + "/#food"
     };
 
+    if (D.schemaHours && D.schemaHours.length) data.openingHours = D.schemaHours;
     if (C.phoneTel && C.phoneTel.indexOf("000000000") === -1) {
       data.telephone = C.phoneTel.replace("tel:", "");
     }
@@ -412,6 +418,10 @@
     initVersus();
     initMap();
     initSchema();
+
+    var score = D.rating && D.rating.score;
+    var ratingBox = $("#ratingScore");
+    if (ratingBox && !isEmpty(score)) ratingBox.hidden = false;
 
     var year = $("#year");
     if (year) year.textContent = new Date().getFullYear();
