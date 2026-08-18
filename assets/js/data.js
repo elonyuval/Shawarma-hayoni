@@ -101,22 +101,25 @@ window.SITE = {
     {
       id: "shawarma", num: "01", name: "שווארמה",
       note: "הדבר האמיתי. נחתכת מהשיפוד כשמזמינים.",
-      image: "images/shawarma.jpg", alt: "שווארמה טרייה נחתכת מהשיפוד", size: "hero",
+      image: "images/shawarma.jpg", alt: "השיפוד של עיוני", size: "hero",
     },
     {
       id: "pargit", num: "02", name: "פרגית",
       note: "עסיסית, ישר מהגריל.",
-      image: "images/pargit.jpg", alt: "פרגית צלויה על הגריל", size: "wide",
+      image: "images/pargit.jpg", alt: "מנת עוף עם סלט ישראלי וצ׳יפס", size: "wide",
     },
+    /* כרטיס השניצל מחכה לצילום אמיתי. כשתהיה תמונה:
+       לשמור אותה כ-images/schnitzel.jpg, לבטל את ההערה כאן,
+       ולהחזיר את chicken ל-size: "small". */
+    // {
+    //   id: "schnitzel", num: "03", name: "שניצל",
+    //   note: "פריך בחוץ, רך בפנים.",
+    //   image: "images/schnitzel.jpg", alt: "שניצל פריך חתוך לפרוסות", size: "small",
+    // },
     {
-      id: "schnitzel", num: "03", name: "שניצל",
-      note: "פריך בחוץ, רך בפנים.",
-      image: "images/schnitzel.jpg", alt: "שניצל פריך חתוך לפרוסות", size: "small",
-    },
-    {
-      id: "chicken", num: "04", name: "חזה עוף",
+      id: "chicken", num: "03", name: "חזה עוף",
       note: "נקי, פשוט, טעים.",
-      image: "images/chicken.jpg", alt: "חזה עוף צלוי", size: "small",
+      image: "images/chicken.jpg", alt: "חזה עוף צלוי עם סלט וצ׳יפס", size: "wide",
     },
   ],
 
@@ -156,15 +159,15 @@ window.SITE = {
       "פתוחים מ־07:30 בבוקר, כי מי שעובד באזור מתחיל מוקדם.",
     ],
     image: "images/about.jpg",
-    alt: "השיפוד של עיוני",
+    alt: "חותכים מהשיפוד בעיוני",
   },
 
   /* ---------- גלריה ---------- */
   gallery: [
-    { image: "images/gallery-1.jpg", alt: "השיפוד", span: "big" },
-    { image: "images/gallery-2.jpg", alt: "מנה מוכנה בפיתה", span: "wide" },
-    { image: "images/gallery-3.jpg", alt: "בשר על הגריל", span: "normal" },
-    { image: "images/gallery-4.jpg", alt: "חותכים מהשיפוד", span: "normal" },
+    { image: "images/gallery-1.jpg", alt: "בגט עוף עם צ׳יפס", span: "big" },
+    { image: "images/gallery-2.jpg", alt: "דלפק הסלטים והפיתות", span: "wide" },
+    { image: "images/gallery-3.jpg", alt: "הבשר יורד מהשיפוד", span: "normal" },
+    { image: "images/gallery-4.jpg", alt: "הדוכן מבפנים", span: "normal" },
   ],
 
   /* ---------- Marquee ---------- */
