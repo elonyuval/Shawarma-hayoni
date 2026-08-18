@@ -23,8 +23,8 @@ window.SITE = {
     // ⚠️ VERIFY — גוף הכשרות המדויק. קיים רישום במועצה הדתית נתניה, לאמת מול התעודה בקיר.
     kosherAuthority: "בהשגחת המועצה הדתית נתניה [לאימות מול התעודה]",
     // ✅ הלוגו חולץ מצילום המסך ששלחת, עם רקע שקוף
-    logo: "/images/logo.png",          // הלוקאפ המלא (סמל + כיתוב) — בפוטר ובשיתופים
-    logoMark: "/images/logo-mark.png", // הסמל בלבד — בהדר ובאייקונים
+    logo: "images/logo.png",          // הלוקאפ המלא (סמל + כיתוב) — בפוטר ובשיתופים
+    logoMark: "images/logo-mark.png", // הסמל בלבד — בהדר ובאייקונים
   },
 
   /* ---------- Hero ---------- */
@@ -101,22 +101,22 @@ window.SITE = {
     {
       id: "shawarma", num: "01", name: "שווארמה",
       note: "הדבר האמיתי. נחתכת מהשיפוד כשמזמינים.",
-      image: "/images/shawarma.jpg", alt: "שווארמה טרייה נחתכת מהשיפוד", size: "hero",
+      image: "images/shawarma.jpg", alt: "שווארמה טרייה נחתכת מהשיפוד", size: "hero",
     },
     {
       id: "pargit", num: "02", name: "פרגית",
       note: "עסיסית, ישר מהגריל.",
-      image: "/images/pargit.jpg", alt: "פרגית צלויה על הגריל", size: "wide",
+      image: "images/pargit.jpg", alt: "פרגית צלויה על הגריל", size: "wide",
     },
     {
       id: "schnitzel", num: "03", name: "שניצל",
       note: "פריך בחוץ, רך בפנים.",
-      image: "/images/schnitzel.jpg", alt: "שניצל פריך חתוך לפרוסות", size: "small",
+      image: "images/schnitzel.jpg", alt: "שניצל פריך חתוך לפרוסות", size: "small",
     },
     {
       id: "chicken", num: "04", name: "חזה עוף",
       note: "נקי, פשוט, טעים.",
-      image: "/images/chicken.jpg", alt: "חזה עוף צלוי", size: "small",
+      image: "images/chicken.jpg", alt: "חזה עוף צלוי", size: "small",
     },
   ],
 
@@ -155,16 +155,16 @@ window.SITE = {
       "פיתה, לאפה, בגט או צלחת — אותו בשר בכל מקרה. ומסביבו מבחר סלטים שאנחנו מתעקשים עליו לא פחות מאשר על השיפוד.",
       "פתוחים מ־07:30 בבוקר, כי מי שעובד באזור מתחיל מוקדם.",
     ],
-    image: "/images/about.jpg",
+    image: "images/about.jpg",
     alt: "השיפוד של עיוני",
   },
 
   /* ---------- גלריה ---------- */
   gallery: [
-    { image: "/images/gallery-1.jpg", alt: "השיפוד", span: "big" },
-    { image: "/images/gallery-2.jpg", alt: "מנה מוכנה", span: "wide" },
-    { image: "/images/gallery-3.jpg", alt: "מבחר הסלטים", span: "normal" },
-    { image: "/images/gallery-4.jpg", alt: "המקום", span: "normal" },
+    { image: "images/gallery-1.jpg", alt: "השיפוד", span: "big" },
+    { image: "images/gallery-2.jpg", alt: "מנה מוכנה", span: "wide" },
+    { image: "images/gallery-3.jpg", alt: "מבחר הסלטים", span: "normal" },
+    { image: "images/gallery-4.jpg", alt: "המקום", span: "normal" },
   ],
 
   /* ---------- Marquee ---------- */

@@ -369,6 +369,8 @@
   /* ---------- Structured data (LocalBusiness / Restaurant) ---------- */
   function initSchema() {
     var C = D.contact || {};
+    // הכתובת בפועל של הדף — עובד גם כשהאתר יושב בתת-נתיב
+    var pageUrl = location.href.split("#")[0].split("?")[0].replace(/index\.html$/, "");
     var data = {
       "@context": "https://schema.org",
       "@type": "Restaurant",
@@ -376,8 +378,8 @@
       alternateName: (D.brand && D.brand.name) || "עיוני",
       description: "שווארמה, פרגית, שניצל וחזה עוף — בפיתה, לאפה, בגט או צלחת. שווארמייה בנתניה.",
       servesCuisine: ["שווארמה", "אוכל רחוב ישראלי", "גריל"],
-      url: window.location.origin + "/",
-      image: window.location.origin + "/images/hero.jpg",
+      url: pageUrl,
+      image: pageUrl + "images/hero.jpg",
       address: {
         "@type": "PostalAddress",
         streetAddress: C.addressLine || "",
@@ -385,7 +387,7 @@
         addressCountry: "IL"
       },
       areaServed: "נתניה",
-      menu: window.location.origin + "/#food"
+      menu: pageUrl + "#food"
     };
 
     if (D.schemaHours && D.schemaHours.length) data.openingHours = D.schemaHours;
