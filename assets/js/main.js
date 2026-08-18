@@ -116,7 +116,7 @@
             phMarkup(d.image, d.alt || d.name) +
             '<span class="food-card-scrim" aria-hidden="true"></span>' +
             '<div class="food-card-body">' +
-              '<span class="food-num">' + esc(d.num) + "</span>" +
+              /* '<span class="food-num">' + esc(d.num) + "</span>" + */
               '<h3 class="food-name">' + esc(d.name) + "</h3>" +
               (d.note ? '<p class="food-note">' + esc(d.note) + "</p>" : "") +
             "</div>" +
