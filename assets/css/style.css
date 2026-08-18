@@ -197,6 +197,16 @@ h1, h2, h3 {
 
 .btn:active { transform: translateY(0) scale(.985); }
 
+/* אייקון קו בתוך כפתור (שקית ההזמנה) */
+.btn-ico {
+  width: 18px; height: 18px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+/* תווית ארוכה בדסקטופ, קצרה במסכים צרים */
+.btn-label-short { display: none; }
+
+
 /* ── 05 Placeholders (יוחלפו בתמונות אמיתיות) ────────────────────────────── */
 .ph {
   position: relative;
@@ -910,7 +920,16 @@ h1, h2, h3 {
 @media (max-width: 1024px) {
   .nav-desktop { display: none; }
   .burger { display: flex; }
-  .header-actions .btn-primary { display: none; }
+}
+
+/* במסך צר כפתור ההזמנה מתכווץ לתווית קצרה כדי לא לדחוף את הלוגו */
+@media (max-width: 600px) {
+  /* "איך מגיעים" כבר יושב בסרגל הפעולות התחתון — לא צריך שורה שלישית בהירו */
+  .hero-cta-extra { display: none; }
+  .header-actions { gap: .5rem; }
+  .header-actions .btn-order { --btn-pad: .55rem .9rem; font-size: .88rem; }
+  .header-actions .btn-label-long { display: none; }
+  .header-actions .btn-label-short { display: inline; }
 }
 @media (max-width: 480px) {
   :root { --wrap: min(1240px, 100% - 1.75rem); }

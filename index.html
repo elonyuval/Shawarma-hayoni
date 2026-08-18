@@ -54,7 +54,11 @@
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm" data-bind-attr="href:contact.phoneTel" href="#visit">התקשרו</a>
+      <a class="btn btn-primary btn-sm btn-order" data-bind-attr="href:links.order" href="#visit">
+        <svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.2 12.1a2 2 0 0 1-2 1.9H7.2a2 2 0 0 1-2-1.9L4 7Z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+        <span class="btn-label-long">להזמנת משלוח</span>
+        <span class="btn-label-short">הזמנה</span>
+      </a>
       <button class="burger" id="burger" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span>
       </button>
@@ -69,7 +73,8 @@
     <ul role="list" data-render="nav-mobile"></ul>
   </nav>
   <div class="mobile-menu-foot">
-    <a class="btn btn-primary btn-block" data-bind-attr="href:contact.phoneTel" href="#visit">התקשרו אלינו</a>
+    <a class="btn btn-primary btn-block" data-bind-attr="href:links.order" href="#visit">להזמנת משלוח</a>
+    <a class="btn btn-ghost btn-block" data-bind-attr="href:contact.phoneTel" href="#visit">התקשרו אלינו</a>
     <a class="btn btn-ghost btn-block" data-bind-attr="href:links.waze" href="#visit">איך מגיעים</a>
   </div>
 </div>
@@ -108,8 +113,12 @@
       <p class="hero-sub" data-bind="hero.sub">שווארמה כמו ששווארמה צריכה להיות.</p>
 
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#food">מה אוכלים</a>
-        <a class="btn btn-ghost" data-bind-attr="href:links.waze" href="#visit">איך מגיעים</a>
+        <a class="btn btn-primary btn-order" data-bind-attr="href:links.order" href="#visit">
+          <svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.2 12.1a2 2 0 0 1-2 1.9H7.2a2 2 0 0 1-2-1.9L4 7Z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+          להזמנת משלוח
+        </a>
+        <a class="btn btn-ghost" href="#food">מה אוכלים</a>
+        <a class="btn btn-ghost hero-cta-extra" data-bind-attr="href:links.waze" href="#visit">איך מגיעים</a>
       </div>
     </div>
 

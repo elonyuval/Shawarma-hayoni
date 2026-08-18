@@ -61,9 +61,9 @@ window.SITE = {
   /* ---------- קישורים ----------
      קישור ריק ("") פשוט לא מוצג באתר. */
   links: {
-    // ⚠️ VERIFY — עמוד ההזמנות ב-10bis. אם אין הזמנות אונליין, לרוקן ולהשאיר טלפון בלבד.
+    // ✅ VERIFIED — עמוד ההזמנות ב-10bis, אושר על ידי בעל העסק
     order: "https://www.10bis.co.il/next/restaurants/menu/delivery/1213/%D7%A9%D7%95%D7%95%D7%90%D7%A8%D7%9E%D7%94-%D7%A2%D7%99%D7%95%D7%A0%D7%99",
-    orderLabel: "הזמנה ב־10bis",
+    orderLabel: "להזמנת משלוח בתן ביס",
     waze: "https://waze.com/ul?q=%D7%A2%D7%99%D7%95%D7%A0%D7%99%20%D7%A9%D7%95%D7%95%D7%90%D7%A8%D7%9E%D7%94%20%D7%92%D7%A8%D7%99%D7%9C%20%D7%A0%D7%AA%D7%A0%D7%99%D7%94&navigate=yes",
     googleMaps: "https://www.google.com/maps/search/?api=1&query=%D7%A2%D7%99%D7%95%D7%A0%D7%99%20%D7%A9%D7%95%D7%95%D7%90%D7%A8%D7%9E%D7%94%20%D7%92%D7%A8%D7%99%D7%9C%20%D7%A9%D7%93%D7%A8%D7%95%D7%AA%20%D7%92%D7%99%D7%91%D7%95%D7%A8%D7%99%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C%2014%20%D7%A0%D7%AA%D7%A0%D7%99%D7%94",
     // ✅ VERIFIED — תחבורה ציבורית (שימושי, אנחנו באזור תעשייה)
