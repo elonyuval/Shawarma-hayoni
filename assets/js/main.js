@@ -325,12 +325,11 @@
   }
 
   /* ---------- לולאת הוידאו בהירו ----------
-     נטענת רק כשהיא באמת תשמש: דסקטופ, בלי prefers-reduced-motion,
-     ובלי מצב חיסכון בנתונים. אחרת הקובץ בכלל לא יורד. */
+     רצה גם בטלפון (הקאדר שם מתמקד בשיפוד דרך object-position).
+     לא נטענת כשביקשו פחות תנועה או כשהדפדפן במצב חיסכון בנתונים. */
   function initHeroVideo() {
     var v = $("#heroVideo");
     if (!v || reduceMotion) return;
-    if (!window.matchMedia || !matchMedia("(min-width: 701px)").matches) return;
     var conn = navigator.connection;
     if (conn && conn.saveData) return;
 
