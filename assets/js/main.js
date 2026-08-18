@@ -310,6 +310,19 @@
     });
   }
 
+  /* ---------- תמונת הירו ייעודית לטלפון ----------
+     בטלפון מסגרת ההירו היא 1:2 לאורך, בדסקטופ ~2.4:1 לרוחב — אותה תמונה
+     לא יכולה לשרת את שתיהן. אם קיים images/hero-mobile.jpg הוא נטען במקום.
+     אם הקובץ לא קיים — לא קורה כלום ונשארת hero.jpg. */
+  function initMobileHero() {
+    var img = $("#heroMedia .ph img");
+    if (!img || !window.matchMedia || !matchMedia("(max-width: 700px)").matches) return;
+    var src = "images/hero-mobile.jpg";
+    var probe = new Image();
+    probe.onload = function () { if (probe.naturalWidth > 0) img.src = src; };
+    probe.src = src;
+  }
+
   /* ---------- Hero parallax ---------- */
   function initParallax() {
     if (reduceMotion) return;
@@ -392,6 +405,7 @@
     runRenderers();
     applyBindings();   // גם על מה שנוצר דינמית
     wireImages();
+    initMobileHero();
     initHeader();
     initActiveNav();
     initReveal();

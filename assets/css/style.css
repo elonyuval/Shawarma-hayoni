@@ -945,6 +945,8 @@ h1, h2, h3 {
   }
   .hero-media { inset: -3% 0 0 0; }
   .hero-media .ph img { object-position: 66% 34%; }
+  /* אם הועלתה תמונה ייעודית לפורטרט — היא כבר בקאדר הנכון, בלי הזזה */
+  .hero-media .ph img[src*="hero-mobile"] { object-position: 50% 42%; }
 
   /* הטקסט יושב על מתכת בהירה — מחשיכים חזק יותר את התחתית */
   .hero-scrim {
