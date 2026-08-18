@@ -162,9 +162,9 @@ window.SITE = {
   /* ---------- גלריה ---------- */
   gallery: [
     { image: "images/gallery-1.jpg", alt: "השיפוד", span: "big" },
-    { image: "images/gallery-2.jpg", alt: "מנה מוכנה", span: "wide" },
-    { image: "images/gallery-3.jpg", alt: "מבחר הסלטים", span: "normal" },
-    { image: "images/gallery-4.jpg", alt: "המקום", span: "normal" },
+    { image: "images/gallery-2.jpg", alt: "מנה מוכנה בפיתה", span: "wide" },
+    { image: "images/gallery-3.jpg", alt: "בשר על הגריל", span: "normal" },
+    { image: "images/gallery-4.jpg", alt: "חותכים מהשיפוד", span: "normal" },
   ],
 
   /* ---------- Marquee ---------- */
