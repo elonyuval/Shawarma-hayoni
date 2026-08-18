@@ -573,51 +573,34 @@ h1, h2, h3 {
   .food-card--small { grid-column: span 1; min-height: 220px; }
 }
 
-/* ── 10 איך בא לך את זה ──────────────────────────────────────────────────── */
-.style-list {
-  display: flex; flex-wrap: wrap;
-  gap: clamp(.5rem, 3vw, 2.5rem);
-  align-items: baseline;
-}
-.style-item {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(2rem, 6.4vw, 4rem);
-  line-height: 1.05;
-  letter-spacing: -.045em;
-  color: var(--ink);
-  opacity: .38;
-  position: relative;
-  cursor: default;
-  transition: color .35s var(--ease), -webkit-text-stroke-color .35s var(--ease), transform .35s var(--ease);
-  transform-origin: right center;
-}
-.style-item::after {
-  content: ""; position: absolute; inset-inline: 0; bottom: .12em;
-  height: 5px; background: var(--chili);
-  transform: scaleX(0); transform-origin: 100% 50%;
-  transition: transform .4s var(--ease);
-}
-.style-item:hover, .style-item:focus-within {
-  color: var(--chili);
-  opacity: 1;
-  transform: scale(1.02);
-}
-.style-item:hover::after, .style-item:focus-within::after { transform: scaleX(1); }
-
-/* ── 11 תוספות (בתוך סקשן הלחם) ─────────────────────────────────────────── */
-.extras-inline {
-  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
+/* ── 10 רצועת המידע: איך מגישים ומה מסביב ──────────────────────────────── */
+.serve-strip {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
   padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
-  border-top: 1px solid var(--line);
-  display: grid; gap: .85rem;
-  justify-items: start;
+  border-top: 2px dashed var(--line);
+  display: grid; gap: clamp(1.25rem, 3vw, 2.5rem);
+  grid-template-columns: auto 1fr;
+  align-items: start;
 }
-.extras-title {
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-  letter-spacing: -.02em;
-  color: var(--ink-70);
+.serve-title {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--chili);
+  margin-bottom: .6rem;
 }
-.extras-note { font-size: .88rem; color: var(--ink-45); }
+.serve-list { display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+.serve-list li {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.serve-list li + li::before {
+  content: "·";
+  color: var(--fire);
+  margin-inline-end: .9rem;
+}
+.extras-note { font-size: .9rem; color: var(--ink-45); margin-top: .6rem; }
 .extras-list { display: flex; flex-wrap: wrap; gap: .45rem; }
 .extras-list li {
   border: 1.5px solid var(--line);
@@ -629,87 +612,7 @@ h1, h2, h3 {
   transition: border-color .3s var(--ease), color .3s var(--ease);
 }
 .extras-list li:hover { border-color: var(--chili); color: var(--chili); }
-
-/* ── 12 Versus ───────────────────────────────────────────────────────────── */
-.versus { background: var(--paper-2); border-block: 2px dashed var(--line); }
-.versus-head { text-align: center; margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
-.versus-question {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(1.6rem, 3.8vw, 2.5rem);
-  letter-spacing: -.04em;
-}
-.versus-wrap {
-  width: var(--wrap); margin-inline: auto;
-  display: flex; gap: .6rem;
-  position: relative;
-}
-.versus-side {
-  position: relative; flex: 1 1 50%;
-  min-height: clamp(190px, 26vw, 280px);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: .4rem;
-  transition: flex-grow .55s var(--ease), border-color .4s var(--ease);
-  isolation: isolate;
-}
-.versus-bg {
-  position: absolute; inset: 0; z-index: -1;
-  background:
-    radial-gradient(80% 100% at 50% 120%, rgba(196, 56, 42, .12), transparent 65%),
-    var(--paper);
-  background-image:
-    repeating-linear-gradient(-45deg, rgba(42, 26, 18, .04) 0 2px, transparent 2px 11px);
-  transition: opacity .4s var(--ease), transform .6s var(--ease);
-}
-.versus-label {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(1.8rem, 5vw, 3.2rem);
-  letter-spacing: -.045em; line-height: 1;
-  transition: transform .5s var(--ease), color .4s var(--ease);
-}
-.versus-sub {
-  font-size: .95rem; color: var(--ink-45);
-  opacity: 0; transform: translateY(8px);
-  transition: opacity .4s var(--ease), transform .4s var(--ease);
-}
-@media (hover: hover) and (min-width: 861px) {
-  .versus-wrap:hover .versus-side { flex-grow: .78; }
-  .versus-wrap .versus-side:hover { flex-grow: 1.5; }
-}
-.versus-side:hover, .versus-side:focus-visible, .versus-side[aria-pressed="true"] {
-  border-color: var(--chili);
-}
-.versus-side:hover .versus-label,
-.versus-side:focus-visible .versus-label,
-.versus-side[aria-pressed="true"] .versus-label { color: var(--chili); transform: scale(1.04); }
-.versus-side:hover .versus-sub,
-.versus-side:focus-visible .versus-sub,
-.versus-side[aria-pressed="true"] .versus-sub { opacity: 1; transform: none; }
-.versus-side[aria-pressed="true"] { flex-grow: 1.4; }
-
-.versus-vs {
-  align-self: center;
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(.9rem, 1.6vw, 1.15rem);
-  letter-spacing: .1em;
-  color: var(--ink-70);
-  padding-inline: .3rem;
-  direction: ltr;
-}
-.versus-result {
-  text-align: center;
-  margin-top: 1.4rem;
-  min-height: 1.6em;
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1rem, 2.4vw, 1.35rem);
-  color: var(--chili);
-  opacity: 0; transform: translateY(6px);
-  transition: opacity .4s var(--ease), transform .4s var(--ease);
-}
-.versus-result.is-visible { opacity: 1; transform: none; }
-
+@media (max-width: 700px) { .serve-strip { grid-template-columns: 1fr; } }
 
 /* ── 13 Reviews ──────────────────────────────────────────────────────────
    פס כהה באמצע הדף — קצב, ובדיוק המקום שבו ציטוט נראה הכי טוב. */
@@ -1020,15 +923,6 @@ h1, h2, h3 {
   .food-card--wide  { min-height: 200px; }
   .food-card--small { min-height: 170px; }
 
-  /* "פיתה או לאפה" — שתי אפשרויות קצרות, אין סיבה לערום אותן */
-  .versus-wrap { flex-direction: row; align-items: stretch; gap: .5rem; }
-  .versus-side { min-height: 150px; flex: 1 1 0; }
-  .versus-vs { align-self: center; }
-  .versus-sub { display: none; }
-  .versus-side[aria-pressed="true"] .versus-sub {
-    display: block; opacity: 1; transform: none; font-size: .82rem;
-  }
-
   .gallery-grid { grid-auto-rows: 27vw; }
   .ph-portrait { aspect-ratio: 4 / 3; }
 
@@ -1098,28 +992,6 @@ h1, h2, h3 {
   0%   { transform: translateY(20%) scale(.7); opacity: 0; }
   25%  { opacity: .45; }
   100% { transform: translateY(-120%) scale(1.25); opacity: 0; }
-}
-
-/* גלגל השווארמה — סימן מים גדול ודהוי */
-.spit-mark {
-  position: absolute; z-index: 0;
-  inset-block: 8% auto; inset-inline-end: 6%;
-  width: clamp(180px, 26vw, 400px);
-  aspect-ratio: 300 / 620;
-  background: url("../../images/spit.svg") no-repeat center / contain;
-  opacity: .07;
-  filter: invert(1) sepia(1) saturate(4) hue-rotate(-16deg);
-  pointer-events: none;
-}
-.spit-mark--left {
-  inset-inline-end: auto; inset-inline-start: 4%;
-  inset-block: 12% auto;
-  width: clamp(150px, 18vw, 280px);
-  opacity: .05;
-}
-@media (max-width: 700px) {
-  .spit-mark { inset-inline-end: -8%; opacity: .05; }
-  .spit-mark--left { display: none; }
 }
 
 /* התוכן תמיד מעל האש */

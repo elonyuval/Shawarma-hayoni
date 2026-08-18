@@ -336,27 +336,6 @@
     update();
   }
 
-  /* ---------- פיתה או לאפה ---------- */
-  function initVersus() {
-    var wrap = $("#versusWrap");
-    var out = $("#versusResult");
-    if (!wrap || !out) return;
-
-    var messages = {
-      pita: "פיתה. בחירה טובה. עכשיו נשאר רק להגיע רעבים.",
-      laffa: "לאפה. בחירה טובה. עכשיו נשאר רק להגיע רעבים."
-    };
-
-    $$(".versus-side", wrap).forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        $$(".versus-side", wrap).forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
-        btn.setAttribute("aria-pressed", "true");
-        out.textContent = messages[btn.getAttribute("data-choice")] || "";
-        out.classList.add("is-visible");
-      });
-    });
-  }
-
   /* ---------- מפה ---------- */
   function initMap() {
     var slot = $("#mapSlot");
@@ -417,7 +396,6 @@
     initActiveNav();
     initReveal();
     initParallax();
-    initVersus();
     initMap();
     initSchema();
 

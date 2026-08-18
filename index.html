@@ -54,7 +54,7 @@
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm" data-bind-attr="href:links.order" href="#visit">להזמנה</a>
+      <a class="btn btn-primary btn-sm" data-bind-attr="href:contact.phoneTel" href="#visit">התקשרו</a>
       <button class="burger" id="burger" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span>
       </button>
@@ -69,7 +69,7 @@
     <ul role="list" data-render="nav-mobile"></ul>
   </nav>
   <div class="mobile-menu-foot">
-    <a class="btn btn-primary btn-block" data-bind-attr="href:links.order" href="#visit">להזמנה</a>
+    <a class="btn btn-primary btn-block" data-bind-attr="href:contact.phoneTel" href="#visit">התקשרו אלינו</a>
     <a class="btn btn-ghost btn-block" data-bind-attr="href:links.waze" href="#visit">איך מגיעים</a>
   </div>
 </div>
@@ -88,8 +88,6 @@
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-embers" aria-hidden="true"></div>
 
-      <!-- גלגל השווארמה כסימן מים דהוי -->
-      <div class="spit-mark" aria-hidden="true"></div>
 
       <!-- להבות עולות ונעלמות. דקורטיבי בלבד, נכבה ב-prefers-reduced-motion -->
       <div class="flames" aria-hidden="true">
@@ -128,57 +126,25 @@
 
       <header class="section-head reveal">
         <span class="eyebrow">התפריט</span>
-        <h2 class="section-title" id="food-title">מה בא לך היום?</h2>
+        <h2 class="section-title" id="food-title">מה יש אצלנו</h2>
       </header>
 
       <div class="food-grid" data-render="dishes"></div>
 
-    </div>
-  </section>
-
-  <!-- ══════════════════ איך בא לך את זה? + תוספות ══════════════════ -->
-  <section class="section serve" id="styles" aria-labelledby="styles-title">
-    <div class="wrap">
-      <header class="section-head reveal">
-        <span class="eyebrow">הלחם</span>
-        <h2 class="section-title" id="styles-title">איך בא לך את זה?</h2>
-      </header>
-
-      <ul class="style-list reveal" role="list" data-render="serveStyles"></ul>
-
-      <div class="extras-inline reveal">
-        <h3 class="extras-title">וכל מה שמסביב</h3>
-        <ul class="extras-list" role="list" data-render="extras"></ul>
-        <p class="extras-note" data-bind="extrasNote"></p>
+      <!-- מידע, לא בחירה: איך מגישים ומה יש מסביב -->
+      <div class="serve-strip reveal">
+        <div class="serve-block">
+          <h3 class="serve-title">מגישים ב־</h3>
+          <ul class="serve-list" role="list" data-render="serveStyles"></ul>
+        </div>
+        <div class="serve-block">
+          <h3 class="serve-title">ומסביב</h3>
+          <ul class="extras-list" role="list" data-render="extras"></ul>
+          <p class="extras-note" data-bind="extrasNote"></p>
+        </div>
       </div>
+
     </div>
-  </section>
-
-  <!-- ══════════════════ פיתה או לאפה? ══════════════════ -->
-  <section class="section-flush versus" id="versus" aria-labelledby="versus-title">
-    <h2 class="visually-hidden" id="versus-title">פיתה או לאפה?</h2>
-
-    <div class="versus-head">
-      <p class="versus-question">פיתה או לאפה?</p>
-    </div>
-
-    <div class="versus-wrap" id="versusWrap">
-      <button class="versus-side" data-choice="pita" type="button" aria-pressed="false">
-        <span class="versus-bg" aria-hidden="true"></span>
-        <span class="versus-label">פיתה</span>
-        <span class="versus-sub">קלאסי. אין מה לחפש.</span>
-      </button>
-
-      <span class="versus-vs" aria-hidden="true">VS</span>
-
-      <button class="versus-side" data-choice="laffa" type="button" aria-pressed="false">
-        <span class="versus-bg" aria-hidden="true"></span>
-        <span class="versus-label">לאפה</span>
-        <span class="versus-sub">כשבאים ברעב אמיתי.</span>
-      </button>
-    </div>
-
-    <p class="versus-result" id="versusResult" role="status" aria-live="polite"></p>
   </section>
 
   <!-- ══════════════════ ביקורות ══════════════════ -->
@@ -186,7 +152,6 @@
     <div class="flames flames-soft" aria-hidden="true">
       <span class="flame f2"></span><span class="flame f4"></span><span class="flame f5"></span>
     </div>
-    <div class="spit-mark spit-mark--left" aria-hidden="true"></div>
     <div class="wrap">
       <header class="section-head reveal">
         <span class="eyebrow">מה אומרים</span>
@@ -252,7 +217,6 @@
     <div class="flames flames-soft" aria-hidden="true">
       <span class="flame f1"></span><span class="flame f3"></span><span class="flame f5"></span>
     </div>
-    <div class="spit-mark spit-mark--left" aria-hidden="true"></div>
     <div class="wrap">
 
       <header class="section-head reveal">
