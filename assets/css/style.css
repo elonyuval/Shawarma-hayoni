@@ -935,6 +935,48 @@ h1, h2, h3 {
   :root { --wrap: min(1240px, 100% - 1.75rem); }
 }
 
+/* ══ הירו בטלפון ══════════════════════════════════════════════════════════
+   בפורטרט הקאדר המרכזי נפל על הגב של העובד — מסך שחור עם כותרת קטנה.
+   כאן: קאדר על השיפוד והבשר, כותרת ענקית, וכפתורים במלוא הרוחב. */
+@media (max-width: 700px) {
+  .hero {
+    min-height: calc(100svh - var(--bar-h));
+    padding-block: calc(var(--header-h) + 1.25rem) clamp(1.75rem, 5vh, 2.75rem);
+  }
+  .hero-media { inset: -3% 0 0 0; }
+  .hero-media .ph img { object-position: 66% 34%; }
+
+  /* הטקסט יושב על מתכת בהירה — מחשיכים חזק יותר את התחתית */
+  .hero-scrim {
+    background:
+      linear-gradient(to top,
+        var(--dark) 6%,
+        rgba(26, 13, 7, .94) 34%,
+        rgba(96, 30, 11, .55) 62%,
+        rgba(21, 10, 5, .5) 100%),
+      radial-gradient(85% 42% at 50% 104%, rgba(255, 140, 26, .42), transparent 68%);
+  }
+
+  .hero-kicker {
+    font-size: .73rem; letter-spacing: .05em;
+    padding: .35rem .8rem;
+    margin-bottom: .9rem;
+  }
+  .hero-title { font-size: clamp(4.2rem, 21vw, 6.5rem); margin-bottom: .45rem; }
+  .hero-sub {
+    font-size: 1.12rem; line-height: 1.3;
+    max-width: 21ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-cta { gap: .55rem; }
+  .hero-cta .btn { flex: 1 1 auto; padding-inline: 1rem; }
+  .hero-cta .btn-order { flex-grow: 1.7; }
+
+  /* קו הגלילה מיותר כשההירו כבר תופס מסך מלא */
+  .hero-scroll { display: none; }
+}
+
 /* ══ מובייל: הדף היה ארוך יותר מהדסקטופ. הבלוקים נמוכים יותר,
       וסקשנים שמתפרסים לגובה עוברים לשתי עמודות במקום להיערם. ══ */
 @media (max-width: 700px) {
