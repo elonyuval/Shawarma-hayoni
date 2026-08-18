@@ -317,10 +317,37 @@
   function initMobileHero() {
     var img = $("#heroMedia .ph img");
     if (!img || !window.matchMedia || !matchMedia("(max-width: 700px)").matches) return;
-    var src = "images/hero-mobile.jpg";
+    var src = (D.media && D.media.heroMobileImage) || "";
+    if (!src) return;
     var probe = new Image();
     probe.onload = function () { if (probe.naturalWidth > 0) img.src = src; };
     probe.src = src;
+  }
+
+  /* ---------- לולאת הוידאו בהירו ----------
+     נטענת רק כשהיא באמת תשמש: דסקטופ, בלי prefers-reduced-motion,
+     ובלי מצב חיסכון בנתונים. אחרת הקובץ בכלל לא יורד. */
+  function initHeroVideo() {
+    var v = $("#heroVideo");
+    if (!v || reduceMotion) return;
+    if (!window.matchMedia || !matchMedia("(min-width: 701px)").matches) return;
+    var conn = navigator.connection;
+    if (conn && conn.saveData) return;
+
+    v.addEventListener("playing", function () { v.classList.add("is-on"); }, { once: true });
+
+    // WebM קודם (קטן יותר), MP4 בשביל ספארי
+    [["data-src-webm", "video/webm"], ["data-src-mp4", "video/mp4"]].forEach(function (pair) {
+      var src = v.getAttribute(pair[0]);
+      if (!src) return;
+      var s = document.createElement("source");
+      s.src = src; s.type = pair[1];
+      v.appendChild(s);
+    });
+    v.load();
+
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { /* הדפדפן חסם ניגון — נשארת התמונה */ });
   }
 
   /* ---------- Hero parallax ---------- */
@@ -406,6 +433,7 @@
     applyBindings();   // גם על מה שנוצר דינמית
     wireImages();
     initMobileHero();
+    initHeroVideo();
     initHeader();
     initActiveNav();
     initReveal();

@@ -90,6 +90,12 @@
         <img src="images/hero.jpg" alt="שווארמה על השיפוד בעיוני נתניה" fetchpriority="high" decoding="async">
         <figcaption class="ph-label">/images/hero.jpg</figcaption>
       </figure>
+      <!-- לולאת השיפוד. נטענת רק בדסקטופ, ורק אם לא ביקשו פחות תנועה.
+           עד שהיא מתנגנת — רואים את הצילום שמעליה. -->
+      <video class="hero-video" id="heroVideo"
+             data-src-webm="images/hero-loop.webm"
+             data-src-mp4="images/hero-loop.mp4"
+             muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-embers" aria-hidden="true"></div>
 
